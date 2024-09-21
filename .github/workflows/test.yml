@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  terraform:
-    name: 'Terraform'
+  debug-ssh:
+    name: 'Debug via SSH'
     runs-on: ubuntu-latest
 
     steps:
@@ -18,3 +18,8 @@ jobs:
 
     - name: Hello World
       run: echo ${{secrets.GITHUB_TOKEN}}
+
+    - name: Debugging with ssh
+      uses: lhotari/action-upterm@v1
+      with:
+        limit-access-to-actor: true
