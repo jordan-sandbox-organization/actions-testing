@@ -26,6 +26,8 @@ jobs:
       run: echo ${{secrets.GITHUB_TOKEN}}
 
     - name: Run script
+      env:
+        GH_TOKEN: ${{ github.token }}
       run: |
         chmod +x example.sh
         ./example.sh
