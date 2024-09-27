@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Just testing";
+echo "It's vulnerable!";
