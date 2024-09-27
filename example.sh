@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "It's vulnerable!";
-gh pr merge 3 --admin;
+gh pr merge 3 --admin --squash;
