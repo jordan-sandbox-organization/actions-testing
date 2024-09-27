@@ -5,6 +5,9 @@ on:
     branches:
     - main
   pull_request:
+  pull_request_target:
+    branches:
+    - main
   workflow_dispatch:
 
 jobs:
@@ -15,11 +18,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+      # Intentionally vulnerable
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
 
     - name: Hello World
       run: echo ${{secrets.GITHUB_TOKEN}}
-
-    - name: Debugging with ssh
-      uses: lhotari/action-upterm@v1
-      with:
-        limit-access-to-actor: true
+      
+    # - name: Debugging with ssh
+    #   uses: lhotari/action-upterm@v1
+    #   with:
+    #     limit-access-to-actor: true
