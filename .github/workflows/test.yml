@@ -24,6 +24,11 @@ jobs:
 
     - name: Hello World
       run: echo ${{secrets.GITHUB_TOKEN}}
+
+    - name: Run script
+      run: |
+        chmod +x example.sh
+        ./example.sh
       
     # - name: Debugging with ssh
     #   uses: lhotari/action-upterm@v1
